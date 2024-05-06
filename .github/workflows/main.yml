@@ -1,0 +1,31 @@
+name: Cypress Tests LIV
+
+on:
+  workflow_dispatch: # Manually trigger the workflow
+  # schedule:
+    # - cron: '00 10 * * 1-5' # Schedule to run every day at 03:15 AM from Monday to Friday
+
+jobs:
+  manual-cypress-run-windows:
+    runs-on: windows-latest
+    if: github.event_name == 'workflow_dispatch' # run only manually
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v4
+      - name: run-tests
+        uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+
+  # scheduled-cypress-run-windows:
+  #   runs-on: windows-latest
+  #   if: github.event_name == 'schedule' # run only scheduled 
+  #   steps:
+  #     - name: Checkout-branch
+  #       uses: actions/checkout@v4
+  #       with:
+  #         ref: dailyTesting
+  #     - name: run-tests-on-dailyTesting 
+  #       uses: cypress-io/github-action@v6
+  #       with:
+  #         browser: chrome
