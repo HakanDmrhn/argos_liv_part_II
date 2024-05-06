@@ -20,7 +20,7 @@ module.exports = defineConfig({
         uploadToArgos: !!process.env.CI,
         mode: 'monitoring',
         // Set your Argos token (required only if you don't use GitHub Actions).
-        // token: "0ecb40fe5a68f7c296fe0b0351aac7d7ee75086a",
+        token: "1470c4a6f6642d8b04461a5ec39aca6cb98b861f",
       });
 
       // include any other plugin code...
