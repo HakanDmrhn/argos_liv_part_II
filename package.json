@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "@argos-ci/cypress": "^2.0.2"
+  },
+  "dependencies": {
+    "cypress": "^13.8.1",
+    "cypress-real-events": "^1.12.0",
+    "scroll-to-bottomjs": "^1.1.0"
+  }
+}
