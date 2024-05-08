@@ -3,6 +3,7 @@ const { registerArgosTask } = require("@argos-ci/cypress/task");
 
 module.exports = defineConfig({
   defaultCommandTimeout: 30000,
+  requestTimeout: 15000,
   responseTimeout: 60000,
   chromeWebSecurity: false,
   redirectionLimit: 100,
