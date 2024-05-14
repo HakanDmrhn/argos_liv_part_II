@@ -1,4 +1,4 @@
-name: Cypress visual tests - LIV part I
+name: Cypress visual tests - LIV part II
 
 on:
   workflow_dispatch: # Manually trigger the workflow
