@@ -3,7 +3,7 @@ name: Cypress visual tests - LIV part II
 on:
   workflow_dispatch: # Manually trigger the workflow
   schedule:
-    - cron: '30 01 * * 1-5' # Schedule to run every day at 1:00 AM from Monday to Friday (aktuell deutsche Zeit - 2 Stunden)
+    - cron: '30 01 * * 1-5' # Schedule to run every day at 1:30 AM from Monday to Friday (aktuell deutsche Zeit - 2 Stunden)
 
 jobs:
   manual-cypress-run-windows:
