@@ -9,19 +9,19 @@ module.exports = defineConfig({
   redirectionLimit: 100,
   userAgent: 'testing_agent_visual',
   env: {
-    AUTH_USER: 'staging',
-    AUTH_PASS: 'staging_pwd',
+    AUTH_USER: process.env.STAGE_USER,
+    AUTH_PASS: process.env.STAGE_PASSW,
   },
   // setupNodeEvents can also be defined in "component"
   e2e: {
-    baseUrl: 'https://www.livoneo.de',
+    baseUrl: process.env.BASE_URL,
     async setupNodeEvents(on, config) {
       registerArgosTask(on, config, {
         // Enable upload to Argos only when it runs on CI.
         uploadToArgos: !!process.env.CI,
         mode: 'monitoring',
         // Set your Argos token (required only if you don't use GitHub Actions).
-        token: "1470c4a6f6642d8b04461a5ec39aca6cb98b861f",
+        token: process.env.ARGOS_TOKEN
       });
 
       // include any other plugin code...
