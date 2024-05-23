@@ -12,6 +12,8 @@ describe('Integration test with visual testing - Diverse CMS Prio2 pages', funct
             cy.visit(link)
             cy.window().then(cyWindow => scrollToBottom({ remoteWindow: cyWindow, frequency: 150, timing: 50 }));
 
+            //ignore youtube videos
+            cy.checkYouTube()
             cy.argosScreenshot(link, {
                 viewports: [
                     "iphone-6", // Use device preset for iphone-6
