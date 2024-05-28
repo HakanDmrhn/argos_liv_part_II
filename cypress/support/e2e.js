@@ -81,42 +81,17 @@ Cypress.Commands.overwrite('visit', (orig, url, options) => {
 });
 
 //custom command to check visibility of youtube videos
-Cypress.Commands.add('checkYouTube', () => {
-
-  // youtube-video css selector: .r-video
-  cy.get('body').then(($body) => {
-    if ($body.find('.r-video').length) {
-      // iframe was found
-      cy.log('YOUTUBE VIDEO FOUND')
-      cy.get('.r-video').invoke('attr', 'data-visual-test', 'transparent');
-    }
-    else {
-      cy.log('YOUTUBE VIDEO FOUND')
-    }
-  })
-
-  // youtube-video css selector: .rvideo
-  cy.get('body').then(($body) => {
-    if ($body.find('.video').length) {
-      // iframe was found
-      cy.log('YOUTUBE VIDEO FOUND')
-      cy.get('.video').invoke('attr', 'data-visual-test', 'transparent');
-    }
-    else {
-      cy.log('YOUTUBE VIDEO FOUND')
-    }
-  })
+Cypress.Commands.add('ignoreYouTube', () => {
 
   // youtube-video css selector: #video
   cy.get('body').then(($body) => {
-    if ($body.find('#video').length) {
+    if ($body.find('iframe').length) {
       // iframe was found
-      cy.log('YOUTUBE VIDEO FOUND')
-      cy.get('#video').invoke('attr', 'data-visual-test', 'transparent');
+      cy.log('IFRAME FOUND')
+      cy.get('iframe').invoke('attr', 'data-visual-test', 'transparent');
     }
     else {
-      cy.log('YOUTUBE VIDEO FOUND')
+      cy.log('IFRAME VIDEO FOUND')
     }
   })
-
 })
