@@ -83,7 +83,7 @@ Cypress.Commands.overwrite('visit', (orig, url, options) => {
 //custom command to check visibility of youtube videos
 Cypress.Commands.add('ignoreYouTube', () => {
 
-  // youtube-video css selector: #video
+  // youtube-video css selector: iframe
   cy.get('body').then(($body) => {
     if ($body.find('iframe').length) {
       // iframe was found
@@ -92,6 +92,18 @@ Cypress.Commands.add('ignoreYouTube', () => {
     }
     else {
       cy.log('IFRAME VIDEO FOUND')
+    }
+  })
+
+  // youtube-video css selector: .video-container
+  cy.get('body').then(($body) => {
+    if ($body.find('.video-container').length) {
+      // youtube was found
+      cy.log('YOUTUBE VIDEO FOUND')
+      cy.get('.video-container').invoke('attr', 'data-visual-test', 'transparent');
+    }
+    else {
+      cy.log('YOUTUBE VIDEO NOT FOUND')
     }
   })
 })
